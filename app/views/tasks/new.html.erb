@@ -1,0 +1,13 @@
+<h1 class="text-center">Add a task</h1>
+
+<form class="form-control text-center">
+  <%= form_with model: @task do |task|%>
+    <%= task.label :title %>
+    <%= task.text_field :title %>
+    <%= task.label :details %>
+    <%= task.text_field :details %>
+    <%= task.submit %>
+  <% end %>
+</form>
+
+<p class="d-grid gap-2 col-2 mx-auto m-4 btn btn-light"><%= link_to "🏠", tasks_path %></p>

@@ -1,0 +1,17 @@
+<h1 class="text-center">My To-Do List</h1>
+
+
+<ol class="list-group text-center m-4">
+  <% @tasks.each do |task| %>
+    <li class="list-inline list-group-item m-2"><%= link_to task.title, task_path(task)  %>
+      <%= link_to "🗑️", task_path(task), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+    <% if task.completed == true %>
+      <%= link_to "🟢", task_path(task) %>
+      <% else %>
+      <%= link_to "🔴", task_path(task) %>
+    <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<button class= "d-grid gap-2 col-2 mx-auto btn btn-warning"><%= link_to "➕ Create a new task", new_path %></button>

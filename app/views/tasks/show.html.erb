@@ -1,0 +1,21 @@
+<h1 class="text-center fst-italic">Your Task</h1>
+
+<h2 class="text-center m-3"><%= @tasks.title %></h2>
+
+<p class="text-center fw-bold">Description : <%= @tasks.details %></p>
+<p class="text-center m-3">
+  <% if @tasks.completed == true %>
+    <%= "Already done, you can chill" %>
+    <% else %>
+    <%= "To be done, hurry up!" %>
+  <% end %>
+</p>
+
+<ul class="list-inline m-3">
+  <button class= "btn btn-light m-2 d-grid gap-2 col-2 mx-auto"><%= link_to "🏠 Back to your To-Do List", tasks_path %></button>
+  <button class= "btn btn-warning m-2 d-grid gap-2 col-2 mx-auto"><%= link_to "Edit a task", edit_path %></button>
+  <button class= "btn btn-warning m-2 d-grid gap-2 col-2 mx-auto"><%= link_to "❌ Delete",
+    task_path,
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %></button>
+</ul>

@@ -1,0 +1,13 @@
+<h1>Edit a task</h1>
+
+<%= form_with model: @task do |task|%>
+  <%= task.label :title %>
+  <%= task.text_field :title %>
+  <%= task.label :details %>
+  <%= task.text_field :details %>
+  <%= task.label :completed, "Mark as done" %>
+  <%= task.check_box :completed %>
+  <%= task.submit %>
+<% end %>
+
+<p><button><%= link_to "🏠", tasks_path %></button></p>
